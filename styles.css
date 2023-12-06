@@ -1,0 +1,77 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 105vh;
+    background: url(images/black-blue-wallpaper.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.box-img {
+    width: 300px;
+    height: 300px;
+    border-radius: 150px;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    border-radius: 150px;
+}
+
+.navbar a{
+    position: relative;
+    font-size: 24px;
+    color: #fff;
+    font-weight: 500;
+    text-decoration: none;
+    margin-left: 40px;
+}
+
+.navbar a::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #d83b3b;
+    transition: 0.4s;
+}
+
+.navbar a:hover::before {
+    width: 100%;
+}
+
+.logo-img {
+    width: 130px;
+    height: 130px;
+    border-radius: 70px;
+}
+
+.main-flex-box {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding-top: 200px;
+}
+.flex-box {
+    width: 300px;
+    height: 300px;
+    border-radius: 150px;
+    margin: 10px;
+}
