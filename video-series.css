@@ -62,11 +62,11 @@ span {
     left: 0;
     bottom: 0;
     z-index: -1;
-    transition: 2s;
+    transition: 3s;
 }
 
 button:hover span {
-    background: url(Home-car-images/up-down-lines.png);
+    background: url(Home-car-images/images/up-down-lines.png);
     width: 100%;
     background-size: cover;
     min-height: 100vh;

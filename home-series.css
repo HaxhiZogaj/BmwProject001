@@ -67,7 +67,7 @@ span {
 }
 
 button:hover span {
-    background: url(Home-car-images/big-lines.png);
+    background: url(Home-car-images/images/big-lines.png);
     width: 100%;
     background-size: cover;
     min-height: 105vh;
