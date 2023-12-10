@@ -32,49 +32,6 @@ body {
     margin-top: 100px;
     margin-left: 200px;
 }
-
-.header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 30px 0 25px 900px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo {
-    font-size: 32px;
-    color: #fff;
-    text-decoration: none;
-    font-weight: 700;
-}
-
-.navbar a{
-    position: relative;
-    font-size: 24px;
-    color: #fff;
-    font-weight: 500;
-    text-decoration: none;
-    margin-left: 60px;
-}
-
-.navbar a::before {
-    content: '';
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: #d83b3b;
-    transition: 0.4s;
-}
-
-.navbar a:hover::before {
-    width: 100%;
-}
-
 p {
     color: white;
     padding: 40px 200px 0px 270px;
