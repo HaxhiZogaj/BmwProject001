@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;   
+    background: url(Home-car-images/big-lines.png) no-repeat;
+    background-size: cover;
+    background-position: center;
+
+}
+
+.container {
+    height: 920px;
+    width: 900px;
+    box-shadow: 3px 3px 16px rgba(0, 0, 0, .7);
+    overflow: hidden;
+    margin-right: 50px;
+}
+
+.images img {
+    height: 100%;
+    width: 60%;
+    border-radius: 150px;
+    margin-top: 100px;
+    margin-left: 200px;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px 0 25px 900px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0, 0, 0, .8);
+    z-index: 100;
+    border-radius: 150px;
+}
+
+.logo {
+    font-size: 32px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.navbar a{
+    position: relative;
+    font-size: 24px;
+    color: #fff;
+    font-weight: 500;
+    text-decoration: none;
+    margin-left: 60px;
+}
+
+.navbar a::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #d83b3b;
+    transition: 0.4s;
+}
+
+.navbar a:hover::before {
+    width: 100%;
+}
+
+p {
+    color: white;
+    padding: 40px 200px 0px 270px;
+}
