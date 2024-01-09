@@ -12,4 +12,4 @@ btnLogin.onclick = function(){
 btnSignUp.onclick = function(){
    signIn.classList.remove("active");
    signUp.classList.remove("inActive");
-}
+};
