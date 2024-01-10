@@ -58,17 +58,15 @@
   if(isset($_POST['create'])){
     $Name = $_POST['Name'];
     $Email = $_POST['Email'];
-    $RememberMe = $_POST['RememberMe'];
     $Password = $_POST['Password'];
 
     echo "Name:  $Name <br>";
     echo "Email: $email <br>";
-    echo "RememberMe: $RememberMe <br>";
     echo "Password: $Password <br>";
   }
 
   if(isset($_POST['login'])){
-    $LoginEmail = $_Post['LoginEmail'];
+    $LoginEmail = $_POST['LoginEmail'];
     $LoginPassword = $_POST['LoginPassword'];
 
 
