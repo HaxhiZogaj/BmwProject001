@@ -39,8 +39,8 @@
                 </div>
                 <div class="forget-password">
                     <div class="check-box">
-                        <input type="checkbox" id="checkbox">
-                        <label for="checkbox">Remember me</label>
+                        <input type="checkbox" id="rememberme" name=RememberMe>
+                        <label for="rememberme">Remember me</label>
                     </div>
                     <a href="#">Forget password?</a>
                 </div>
@@ -54,26 +54,30 @@
 </body>
 </html>
 <?php
-  
+
   if(isset($_POST['create'])){
     $Name = $_POST['Name'];
     $Email = $_POST['Email'];
-    $RememberMe = $_POST['RememberMe'];
+    $RememberMe = isset($_POST['RememberMe']) ? $_POST['RememberMe'] : '';
     $Password = $_POST['Password'];
-
+  
     echo "Name:  $Name <br>";
-    echo "Email: $email <br>";
+    echo "Email: $Email <br>";
     echo "RememberMe: $RememberMe <br>";
     echo "Password: $Password <br>";
   }
 
+
+
   if(isset($_POST['login'])){
     $LoginEmail = $_Post['LoginEmail'];
     $LoginPassword = $_POST['LoginPassword'];
+    $RememberMe = isset($_POST['RememberMe']) ? $_POST['RememberMe'] : '';
 
 
     echo "Login Email:  $LoginEmail <br>";
     echo "Login Password: $LoginPassword";
+    echo "RememberMe:  $RememberMe <br> ";
   }
 
 ?>
