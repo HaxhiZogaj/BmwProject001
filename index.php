@@ -1,15 +1,41 @@
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "Bmw";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+$sql = "SELECT * FROM news";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    while($row = $result->fetch_assoc()) {
+        echo "id: " . $row["id"]. " - Title: " . $row["title"]. " " . $row["content"]. "<br>";
+    }
+} else {
+    echo "0 results";
+}
+
+$conn->close();
+?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to BMW Project</title>
     <link rel="stylesheet" href="styles.css">
-    <title>BMW</title>
 </head>
 <body>
     <header class="header">
         <a href="#"><img src="images/logo.png" class="logo-img"></a>
         <nav class="navbar">
+            <a href="news.html">News</a>
+            <a href="Products.html">Products</a>
             <a href="about-us.html">About Us</a>
             <a href="future.html">Future</a>
             <a href="services.html">Services</a>

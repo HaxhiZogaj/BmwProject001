@@ -22,7 +22,7 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    padding: 20px 100px;
+    padding: 20px 90px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -32,7 +32,7 @@ body {
 
 .navbar a{
     position: relative;
-    font-size: 24px;
+    font-size: 20px;
     color: #fff;
     font-weight: 500;
     text-decoration: none;
