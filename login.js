@@ -1,3 +1,4 @@
+document.addEventListener("DOMContentLoaded" , function() {
 let btnLogin = document.getElementById("login");
 let btnSignUp = document.getElementById("signup");
 
@@ -12,4 +13,5 @@ btnLogin.onclick = function(){
 btnSignUp.onclick = function(){
    signIn.classList.remove("active");
    signUp.classList.remove("inActive");
-}
+};
+});
