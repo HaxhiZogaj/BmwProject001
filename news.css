@@ -1,20 +1,18 @@
-/* Basic reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Basic layout styles */
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    background: #000000; /* Example background color */
+    background: #000000;
 }
 
 .container {
     width: 80%;
-    max-width: 1200px; /* Max width for larger screens */
+    max-width: 1200px;
     margin: auto;
     overflow: hidden;
 }
