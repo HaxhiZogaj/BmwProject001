@@ -79,6 +79,28 @@
                 echo "Error: " . $sql . "<br>" . $conn->error;
             }
         }
-        
 
+        if (isset($_POST['login'])) {
+            $LoginEmail = $_POST['LoginEmail'];
+            $LoginPassword = $_POST['LoginPassword'];
+            $RememberMe = isset($_POST['RememberMe']) ? $_POST['RememberMe'] : '';
+    
+            $sql = "SELECT * FROM users WHERE Email = '$LoginEmail'";
+            $result = $conn->query($sql);
+    
+            if ($result->num_rows > 0) {
+                $user = $result->fetch_assoc();
+    
+                if (password_verify($LoginPassword, $user['Password'])) {
+                    echo "Login successful!";
+    
+                } else {
+                    echo "Invalid password!";
+                }
+            } else {
+                echo "User not found!";
+            }
+        }
+    }
+    
 ?>
