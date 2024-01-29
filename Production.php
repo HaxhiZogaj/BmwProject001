@@ -5,7 +5,13 @@
 </head>
 <body>
     <header>
-        <!-- Your existing header and navigation code -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html">Home</a>
+            <a href="about-us.html">About</a>
+            <a href="Login.html">Contact</a>
+        </div>
+    </nav>
     </header>
 
     <div class="products-container">
