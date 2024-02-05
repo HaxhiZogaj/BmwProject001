@@ -54,30 +54,53 @@
 </body>
 </html>
 <?php
+     $servername="host";
+     $username="user";
+      $password ="password";
+      $dbname="name";
 
-  if(isset($_POST['create'])){
-    $Name = $_POST['Name'];
-    $Email = $_POST['Email'];
-    $RememberMe = isset($_POST['RememberMe']) ? $_POST['RememberMe'] : '';
-    $Password = $_POST['Password'];
-  
-    echo "Name:  $Name <br>";
-    echo "Email: $Email <br>";
-    echo "RememberMe: $RememberMe <br>";
-    echo "Password: $Password <br>";
-  }
+      $conn = new mysqli($servername, $username, $password, $dbname);
 
+      if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
 
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        if (isset($_POST['create'])) {
+            $Name = $_POST['Name'];
+            $Email = $_POST['Email'];
+            $RememberMe = isset($_POST['RememberMe']) ? $_POST['RememberMe'] : '';
+            $Password = password_hash($_POST['Password'], PASSWORD_DEFAULT);
+    
+            $sql = "INSERT INTO users (Name, Email, RememberMe, Password) VALUES ('$Name', '$Email', '$RememberMe', '$Password')";
+            if ($conn->query($sql) === TRUE) {
+                echo "Useri u krye me sukses!";
+            } else {
+                echo "Error: " . $sql . "<br>" . $conn->error;
+            }
+        }
 
-  if(isset($_POST['login'])){
-    $LoginEmail = $_Post['LoginEmail'];
-    $LoginPassword = $_POST['LoginPassword'];
-    $RememberMe = isset($_POST['RememberMe']) ? $_POST['RememberMe'] : '';
-
-
-    echo "Login Email:  $LoginEmail <br>";
-    echo "Login Password: $LoginPassword";
-    echo "RememberMe:  $RememberMe <br> ";
-  }
-
+        if (isset($_POST['login'])) {
+            $LoginEmail = $_POST['LoginEmail'];
+            $LoginPassword = $_POST['LoginPassword'];
+            $RememberMe = isset($_POST['RememberMe']) ? $_POST['RememberMe'] : '';
+    
+            $sql = "SELECT * FROM users WHERE Email = '$LoginEmail'";
+            $result = $conn->query($sql);
+    
+            if ($result->num_rows > 0) {
+                $user = $result->fetch_assoc();
+    
+                if (password_verify($LoginPassword, $user['Password'])) {
+                    echo "Login successful!";
+    
+                } else {
+                    echo "Invalid password!";
+                }
+            } else {
+                echo "User not found!";
+            }
+        }
+    }
+    
 ?>
