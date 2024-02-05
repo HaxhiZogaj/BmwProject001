@@ -5,23 +5,26 @@ $password = "";
 $dbname = "Bmw";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
+// Krijon një instancë të re të klasës mysqli për të vendosur një lidhje me bazën e të dhënave MySQL duke përdorur 
+// emrin e serverit të mëparshëm, emrin e përdoruesit, fjalëkalimin 
+// dhe emrin e bazës së të dhënave.
 
-if ($conn->connect_error) {
+if ($conn->connect_error) { //Kontrollon nëse ka një gabim lidhjeje duke qasur pronën connect_error të objektit
     die("Connection failed: " . $conn->connect_error);
-}
+} // Nëse ka një gabim lidhjeje, skripti ndalet dhe printon mesazhin e gabimit.
 
 $sql = "SELECT * FROM news";
 $result = $conn->query($sql);
 
-if ($result->num_rows > 0) {
-    while($row = $result->fetch_assoc()) {
+if ($result->num_rows > 0) { //  Kontrollon nëse grupi i rezultateve përmban ndonjë rresht.
+    while($row = $result->fetch_assoc()) { //  Përdor një cikël while për të marrë çdo rresht të grupit të rezultateve si një varg asociativ. 
         echo "id: " . $row["id"]. " - Title: " . $row["title"]. " " . $row["content"]. "<br>";
-    }
+    } // Printon kolonat id, title dhe content të rreshtit aktual, e ndjekur nga një ndërrim rreshti.
 } else {
-    echo "0 results";
+    echo "0 results"; // Printon "0 rezultate" nëse nuk ka asnjë rresht në grupin e rezultateve.
 }
 
-$conn->close();
+$conn->close(); // mbyllja e lidhjes me bazen e te dhenave
 ?>
 
 <!DOCTYPE html>

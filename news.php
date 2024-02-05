@@ -18,16 +18,21 @@
     <div class="container articles-container">
         <?php
 
-        $articles = [
+        $articles = [ //  Krijimi i një array të asociuar ku secili element përfaqëson një artikull. 
             ["image" => "1.png", "title" => "Article Title 1", "content" => "Article summary or content goes here."],
         ];
 
-        foreach ($articles as $article) {
-            echo "<div class='article-box'>";
+        foreach ($articles as $article) { 
+            // Fillimi i një cikli foreach që kalon nëpër secilin element të array-it $articles.
+            echo "<div class='article-box'>"; 
+            // Shfaqja e divit me klasen article-box.
             echo "<img src='" . $article["image"] . "' alt='Article Image'>";
+            // Shfaqja e një imazhi për artikullin.
             echo "<h2>" . $article["title"] . "</h2>";
+            // Shfaqja e titullit të artikullit me h2.
             echo "<p>" . $article["content"] . "</p>";
-            echo "</div>";
+            // Shfaqja e përmbajtjes së artikullit brenda një paragrafi.
+            echo "</div>"; // Mbyllja e divit.
         }
         ?>
     </div>
