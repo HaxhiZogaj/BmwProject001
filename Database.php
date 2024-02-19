@@ -43,6 +43,35 @@ class Database {
         }
     }
 
+
+    public function getAllProducts() {
+        $sql = "SELECT * FROM cars"; 
+        $result = $this->conn->query($sql);
+    
+        $products = [];
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $products[] = $row;
+            }
+        }
+        return $products;
+    }
+    
+
+
+    public function getAllNews() {
+        $sql = "SELECT * FROM news"; // Assuming your table name is 'news'
+        $result = $this->conn->query($sql);
+    
+        $newsItems = [];
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $newsItems[] = $row;
+            }
+        }
+        return $newsItems;
+    }
+
     public function close() {
         $this->conn->close();
     }

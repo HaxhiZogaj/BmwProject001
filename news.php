@@ -1,3 +1,11 @@
+<?php
+require_once('C:\xampp\htdocs\BmwProject001\Database.php');
+
+$db = new Database();
+$newsItems = $db->getAllNews();
+$db->close();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,38 +17,20 @@
 <body>
     <nav class="navbar">
         <div class="container">
-            <a href="#">Home</a>
-            <a href="#">About</a>
-            <a href="#">Contact</a>
+            <a href="index.html">Home</a>
+            <a href="about-us.html">About</a>
+            <a href="Login.html">Contact</a>
         </div>
     </nav>
 
     <div class="container articles-container">
-        <?php
-
-        $articles = [ //  Krijimi i një array të asociuar ku secili element përfaqëson një artikull. 
-            ["image" => "1.png", "title" => "Article Title 1", "content" => "Article summary or content goes here."],
-        ];
-
-        foreach ($articles as $article) { 
-            // Fillimi i një cikli foreach që kalon nëpër secilin element të array-it $articles.
-            echo "<div class='article-box'>"; 
-            // Shfaqja e divit me klasen article-box.
-            echo "<img src='" . $article["image"] . "' alt='Article Image'>";
-            // Shfaqja e një imazhi për artikullin.
-            echo "<h2>" . $article["title"] . "</h2>";
-            // Shfaqja e titullit të artikullit me h2.
-            echo "<p>" . $article["content"] . "</p>";
-            // Shfaqja e përmbajtjes së artikullit brenda një paragrafi.
-            echo "</div>"; // Mbyllja e divit.
-        }
-        ?>
+        <?php foreach ($newsItems as $newsItem): ?>
+            <div class="article-box">
+                <img src="<?php echo htmlspecialchars($newsItem['photopath']); ?>" alt="Article Image">
+                <h2><?php echo htmlspecialchars($newsItem['title']); ?></h2>
+                <p><?php echo htmlspecialchars($newsItem['description']); ?></p>
+            </div>
+        <?php endforeach; ?>
     </div>
-
-    <footer class="news-footer">
-        <div class="container">
-            <p>&copy; 2024 News Site</p>
-        </div>
-    </footer>
 </body>
 </html>
