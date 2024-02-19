@@ -7,10 +7,8 @@ class Database {
     private $conn;
 
     public function __construct() {
-        // Create connection
         $this->conn = new mysqli($this->servername, $this->username, $this->password, $this->dbname);
 
-        // Check connection
         if ($this->conn->connect_error) {
             die("Connection failed: " . $this->conn->connect_error);
         }
@@ -27,6 +25,22 @@ class Database {
             }
         }
         return $cars;
+    }
+
+
+    public function getCarById($id) {
+        $stmt = $this->conn->prepare("SELECT * FROM cars WHERE id = ?");
+        $stmt->bind_param("i", $id); 
+
+        $stmt->execute();
+
+        $result = $stmt->get_result();
+
+        if ($result->num_rows > 0) {
+            return $result->fetch_assoc(); 
+        } else {
+            return null; 
+        }
     }
 
     public function close() {

@@ -28,7 +28,7 @@ $db->close();
     <section class="main-flex-box">
         <?php foreach ($cars as $car): ?>
             <div class="flex-box">
-                <a href="car-details.php?id=<?php echo $car['id']; ?>">
+                <a href="Cars-Details.php?id=<?php echo $car['id']; ?>">
                     <img src="<?php echo htmlspecialchars($car['image']); ?>" class="box-img">
                 </a>
             </div>
